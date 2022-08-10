@@ -1,0 +1,11 @@
+PS C:\Users\Stalin\.kube> kubectl logs websrv-deployment-585ffd54bd-dk9p4 --namespace=dev-stack-io
+2022/08/09 23:21:08 An error has occured :  open server.confi: no such file or directory
+2022/08/09 23:21:08 An error has occured :  dial tcp 127.0.0.1:3306: connect: connection refused
+PS C:\Users\Stalin\.kube>
+
+PS C:\Users\Stalin\.kube> kubectl get pods --namespace=dev-stack-io
+NAME                                 READY   STATUS             RESTARTS         AGE
+websrv-deployment-585ffd54bd-dk9p4   0/1     CrashLoopBackOff   39 (4m12s ago)   109m
+websrv-deployment-585ffd54bd-xdnjs   0/1     CrashLoopBackOff   39 (3m52s ago)   109m
+
+

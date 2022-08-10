@@ -1,0 +1,13 @@
+#! /bin/bash
+
+## To automate the docker image build process and sufix the image file with current date & time 
+
+current_date_time=$(date "+%Y.%m.%d-%H.%M.%S")
+docker build -f /images/Dockerfile.prod -t stalin909/web_srv:$current_date_time .
+new_image=stalin909/web_srv:$current_date_time
+
+cp -p script.yaml new-app.yaml
+
+sed -i 's/MY_NEW_IMAGE/'"$new_image"'/g' new-app.yaml
+
+kubectl diff -f ./new-app.yaml 

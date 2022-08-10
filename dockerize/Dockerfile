@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
-## Used Docker multistage method to configure this file 
+## Docker multistage configuration file 
 
-## Build
+## Building the image with the source code
 
 FROM golang:1.19-alpine AS build
 
@@ -16,7 +16,7 @@ COPY stack.io/dockerize/ ./
 
 RUN go build -o /web_server
 
-## Deploy
+## Deploying the executable into the image 
 
 FROM alpine:latest
 
